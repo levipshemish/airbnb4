@@ -22,7 +22,7 @@ import ExperienceUserDetails from "./pages/ExperienceUserDetails";
 import ServiceDetails from "./pages/ServiceDetails";
 import MyServices from "./pages/MyServices";
 import ServiceUserDetails from "./pages/ServiceUserDetails";
-import SuccessExperience from "./pages/successexperience";
+import SuccessExperience from "./pages/SuccessExperience";
 import SuccessService from "./pages/SuccessService";
 import Upcoming from "./pages/Upcoming";
 
