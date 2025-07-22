@@ -33,7 +33,7 @@ const handleSearch = () => {
   const handleClose = () => setShowPopup(false);
 
   const submit = async () => {
-    const res = await fetch('http://localhost:5869/api/auth/signup', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, text }),
@@ -46,7 +46,7 @@ const handleSearch = () => {
 
   const login = async () => {
     try {
-      const res = await fetch('http://localhost:5869/api/auth/login', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: loginName, text: loginText }),

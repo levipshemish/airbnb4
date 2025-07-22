@@ -13,7 +13,7 @@ export default function ExperienceDetails() {
 
   useEffect(() => {
     const fetchExperience = async () => {
-      const res = await fetch(`http://localhost:5869/api/experiences/${id}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/experiences/${id}`);
       const data = await res.json();
       setExperience(data);
     };
@@ -51,7 +51,7 @@ export default function ExperienceDetails() {
     };
   
     try {
-      const response = await fetch('http://localhost:5869/api/experiences/api/create-checkout-session', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/experiences/api/create-checkout-session`, {
         method: 'POST',
         headers,
         body: JSON.stringify(body),
@@ -88,7 +88,7 @@ export default function ExperienceDetails() {
         {experience.photos.map((photo, i) => (
           <img
             key={i}
-            src={`http://localhost:5869/${photo}`}
+            src={`${import.meta.env.VITE_API_URL}/${photo}`}
             alt={`Experience ${i}`}
             className="w-40 h-40 object-cover rounded-lg shadow-sm"
           />

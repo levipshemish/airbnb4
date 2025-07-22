@@ -11,7 +11,7 @@ const MyExperiences = () => {
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const res = await fetch(`http://localhost:5869/api/experiences/user/${user._id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/experiences/user/${user._id}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
@@ -50,7 +50,7 @@ const MyExperiences = () => {
 
               {exp.photos && exp.photos.length > 0 && (
                 <img
-                  src={`http://localhost:5869/${exp.photos[0]}`}
+                  src={`${import.meta.env.VITE_API_URL}/${exp.photos[0]}`}
                   alt={exp.title}
                   className="mt-2 w-full h-48 object-cover rounded"
                 />

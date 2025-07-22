@@ -15,7 +15,7 @@ const Upcoming = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const res = await fetch(`http://localhost:5869/api/bookings/user/${user._id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/bookings/user/${user._id}`);
         const data = await res.json();
         setBookings(data);
       } catch (err) {
@@ -31,7 +31,7 @@ const Upcoming = () => {
   useEffect(() => {
     const fetchExperienceBookings = async () => {
       try {
-        const res = await fetch(`http://localhost:5869/api/experiencebookings/user/${user._id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/experiencebookings/user/${user._id}`);
         const data = await res.json();
         setExperienceBookings(data);
       } catch (err) {
@@ -47,7 +47,7 @@ const Upcoming = () => {
   useEffect(() => {
     const fetchServiceBookings = async () => {
       try {
-        const res = await fetch(`http://localhost:5869/api/servicebookings/user/${user._id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/servicebookings/user/${user._id}`);
         const data = await res.json();
         setServiceBookings(data);
       } catch (err) {
@@ -73,7 +73,7 @@ const Upcoming = () => {
         <div className="grid gap-4 mb-10">
           {bookings.map((booking) => (
             <div key={booking._id} className="p-4 border rounded shadow flex gap-4 items-center">
-                <img src={`http://localhost:5869/${booking.photo}`} alt="Home" className="w-32 h-24 object-cover rounded" />
+                <img src={`${import.meta.env.VITE_API_URL}/${booking.photo}`} alt="Home" className="w-32 h-24 object-cover rounded" />
                 <div>
                 <h2 className="text-xl font-semibold">{booking.name}</h2>
                 <p>{booking.address}</p>
@@ -91,7 +91,7 @@ const Upcoming = () => {
         <div className='mb-10'>
         {experienceBookings.map((exbooking) => (
               <div key={exbooking._id} className="p-4 border rounded shadow flex gap-4 items-center">
-              <img src={`http://localhost:5869/${exbooking.experiencePhoto}`} alt="Home" className="w-32 h-24 object-cover rounded" />
+              <img src={`${import.meta.env.VITE_API_URL}/${exbooking.experiencePhoto}`} alt="Home" className="w-32 h-24 object-cover rounded" />
               <div>
               <h2 className="text-xl font-semibold">{exbooking.experienceTitle}</h2>
               <p>{exbooking.experienceAddress}</p>
@@ -107,7 +107,7 @@ const Upcoming = () => {
      <div className='text-xl mb-1'>Services</div>
         {serviceBookings.map((servbooking) => (
               <div key={servbooking._id} className="p-4 border rounded shadow flex gap-4 items-center">
-              <img src={`http://localhost:5869/${servbooking.servicePhoto}`} alt="Home" className="w-32 h-24 object-cover rounded" />
+              <img src={`${import.meta.env.VITE_API_URL}/${servbooking.servicePhoto}`} alt="Home" className="w-32 h-24 object-cover rounded" />
               <div>
               <h2 className="text-xl font-semibold">{servbooking.serviceTitle}</h2>
               <p>{servbooking.serviceLocation}</p>

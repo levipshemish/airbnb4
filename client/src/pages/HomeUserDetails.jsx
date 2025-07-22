@@ -17,7 +17,7 @@ export default function HomeUserDetails() {
   useEffect(() => {
     const fetchHome = async () => {
       try {
-        const res = await fetch(`http://localhost:5869/api/homes/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/homes/${id}`);
         const data = await res.json();
         setHome(data);
         setEditData({
@@ -50,7 +50,7 @@ export default function HomeUserDetails() {
         formData.append('photo', editData.photo);
       }
   
-      const res = await fetch(`http://localhost:5869/api/homes/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/homes/${id}`, {
         method: 'PUT',
         body: formData,
       });
@@ -88,7 +88,7 @@ export default function HomeUserDetails() {
 
     {home.photos?.length > 0 && (
         <img
-        src={`http://localhost:5869/${home.photos[0]}`}
+        src={`${import.meta.env.VITE_API_URL}/${home.photos[0]}`}
         alt="Home"
         className="w-full max-w-3xl h-80 object-cover rounded-xl border"
         />

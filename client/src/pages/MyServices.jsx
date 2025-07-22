@@ -11,7 +11,7 @@ const MyServices = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await fetch(`http://localhost:5869/api/services/user/${user._id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/services/user/${user._id}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
@@ -51,7 +51,7 @@ const MyServices = () => {
 
               {svc.photos && svc.photos.length > 0 && (
                 <img
-                  src={`http://localhost:5869/${svc.photos[0]}`}
+                  src={`${import.meta.env.VITE_API_URL}/${svc.photos[0]}`}
                   alt={svc.title}
                   className="mt-2 w-full h-48 object-cover rounded"
                 />

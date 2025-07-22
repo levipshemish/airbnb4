@@ -12,7 +12,7 @@ const MyHomes = () => {
   useEffect(() => {
     const fetchHomes = async () => {
       try {
-        const res = await fetch(`http://localhost:5869/api/homes/user/${user._id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/homes/user/${user._id}`);
         const data = await res.json();
         setHomes(data);
       } catch (err) {
@@ -45,7 +45,7 @@ const MyHomes = () => {
 
                   {home.photos && home.photos.length > 0 && (
                     <img
-                      src={`http://localhost:5869/${home.photos[0]}`}
+                      src={`${import.meta.env.VITE_API_URL}/${home.photos[0]}`}
                       alt="Home"
                       className="mt-2 w-full h-48 object-cover rounded"
                     />

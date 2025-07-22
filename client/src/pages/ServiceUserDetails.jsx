@@ -21,7 +21,7 @@ export default function ServiceUserDetails() {
   useEffect(() => {
     const fetchService = async () => {
       try {
-        const res = await fetch(`http://localhost:5869/api/services/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/services/${id}`);
         const data = await res.json();
         setService(data);
         setEditData({
@@ -60,7 +60,7 @@ export default function ServiceUserDetails() {
         formData.append('photo', editData.photo);
       }
 
-      const res = await fetch(`http://localhost:5869/api/services/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/services/${id}`, {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -102,7 +102,7 @@ export default function ServiceUserDetails() {
 
       {service.photos?.length > 0 && (
         <img
-          src={`http://localhost:5869/${service.photos[0]}`}
+          src={`${import.meta.env.VITE_API_URL}/${service.photos[0]}`}
           alt={service.title}
           className="w-full max-w-3xl h-80 object-cover rounded-xl border"
         />

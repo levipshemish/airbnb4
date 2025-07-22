@@ -9,7 +9,7 @@ const SuccessService = () => {
 
   useEffect(() => {
     if (!bookingId) return;
-    fetch(`http://localhost:5869/api/servicebookings/${bookingId}`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/servicebookings/${bookingId}`)
       .then((res) => res.json())
       .then((data) => setBooking(data))
       .catch((err) => console.error('Error fetching service booking:', err));
@@ -21,7 +21,7 @@ const SuccessService = () => {
     <div className="p-8 max-w-xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">🎉 Service Booked!</h1>
       <img
-        src={`http://localhost:5869/${booking.servicePhoto}`}
+        src={`${import.meta.env.VITE_API_URL}/${booking.servicePhoto}`}
         alt="Service"
         className="w-full h-64 object-cover rounded"
       />

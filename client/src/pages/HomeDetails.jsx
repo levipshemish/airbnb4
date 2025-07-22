@@ -26,7 +26,7 @@ const totalPrice = home ? totalNights * home.price : 0;
 
   useEffect(() => {
     const fetchHome = async () => {
-      const res = await fetch(`http://localhost:5869/api/homes/${id}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/homes/${id}`);
       const data = await res.json();
       setHome(data);
     };
@@ -57,7 +57,7 @@ const totalPrice = home ? totalNights * home.price : 0;
       photo: home.photos[0]     // just use the first photo
     };
   
-    const response = await fetch('http://localhost:5869/api/homes/api/create-checkout-session', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/homes/api/create-checkout-session`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
@@ -89,7 +89,7 @@ console.log(home)
       {home.photos.map((photo, i) => (
         <img
           key={i}
-          src={`http://localhost:5869/${photo}`}
+          src={`${import.meta.env.VITE_API_URL}/${photo}`}
           alt={`Home photo ${i}`}
           className="w-40 h-40 object-cover rounded-lg shadow-sm"
         />
@@ -120,7 +120,7 @@ console.log(home)
             {home.photos.map((photo, i) => (
               <img
                 key={i}
-                src={`http://localhost:5869/${photo}`}
+                src={`${import.meta.env.VITE_API_URL}/${photo}`}
                 alt={`Home photo ${i}`}
                 className="w-32 h-32 object-cover rounded"
               />

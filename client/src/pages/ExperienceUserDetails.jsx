@@ -18,7 +18,7 @@ export default function ExperienceUserDetails() {
   useEffect(() => {
     const fetchExperience = async () => {
       try {
-        const res = await fetch(`http://localhost:5869/api/experiences/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/experiences/${id}`);
         const data = await res.json();
         setExperience(data);
         setEditData({
@@ -53,7 +53,7 @@ export default function ExperienceUserDetails() {
         formData.append('photo', editData.photo);
       }
 
-      const res = await fetch(`http://localhost:5869/api/experiences/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/experiences/${id}`, {
         method: 'PUT',
         body: formData,
         headers: {
@@ -96,7 +96,7 @@ export default function ExperienceUserDetails() {
 
       {experience.photos?.length > 0 && (
         <img
-          src={`http://localhost:5869/${experience.photos[0]}`}
+          src={`${import.meta.env.VITE_API_URL}/${experience.photos[0]}`}
           alt={experience.title}
           className="w-full max-w-3xl h-80 object-cover rounded-xl border"
         />

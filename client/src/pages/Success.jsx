@@ -8,7 +8,7 @@ export default function Success() {
 
   useEffect(() => {
     const fetchBooking = async () => {
-      const res = await fetch(`http://localhost:5869/api/bookings/${bookingId}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/bookings/${bookingId}`);
       const data = await res.json();
       setBooking(data);
     };
@@ -26,7 +26,7 @@ export default function Success() {
       <p className="text-gray-700"><strong>Total:</strong> ${booking.totalPrice}</p>
       {booking.photo && (
         <img
-          src={`http://localhost:5869/${booking.photo}`}
+          src={`${import.meta.env.VITE_API_URL}/${booking.photo}`}
           alt="Booked Home"
           className="mt-4 w-full h-64 object-cover rounded"
         />

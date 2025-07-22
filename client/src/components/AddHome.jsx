@@ -38,7 +38,7 @@ const AddHome = () => {
           formData.append('photos', photo);
         });
       
-        const res = await fetch('http://localhost:5869/api/homes', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/homes`, {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${token}`, // 🔐 Send the JWT here

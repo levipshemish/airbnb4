@@ -70,7 +70,7 @@ const navigate = useNavigate();
         formData.append('photos', photos[i]);
       }
   
-      const res = await fetch('http://localhost:5869/api/experiences', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/experiences`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`

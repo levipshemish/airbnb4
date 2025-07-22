@@ -13,7 +13,7 @@ export default function SerivceDetails() {
 
   useEffect(() => {
     const fetchService = async () => {
-      const res = await fetch(`http://localhost:5869/api/services/${id}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/services/${id}`);
       const data = await res.json();
       setService(data);
     };
@@ -80,7 +80,7 @@ export default function SerivceDetails() {
       userId: user._id, // assuming you have user from context
     };
   
-    const response = await fetch('http://localhost:5869/api/services/api/create-checkout-session', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/services/api/create-checkout-session`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ export default function SerivceDetails() {
         {service.photos.map((photo, i) => (
           <img
             key={i}
-            src={`http://localhost:5869/${photo}`}
+            src={`${import.meta.env.VITE_API_URL}/${photo}`}
             alt={`Experience ${i}`}
             className="w-40 h-40 object-cover rounded-lg shadow-sm"
           />

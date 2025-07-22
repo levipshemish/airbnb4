@@ -9,7 +9,7 @@ const Experiences = () => {
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const res = await fetch('http://localhost:5869/api/experiences');
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/experiences`);
         const data = await res.json();
         setExperiences(data);
       } catch (err) {
@@ -46,7 +46,7 @@ const Experiences = () => {
             <div className="hover:shadow-lg transition">
               {exp.photos?.length > 0 && (
                 <img
-                  src={`http://localhost:5869/${exp.photos[0]}`}
+                  src={`${import.meta.env.VITE_API_URL}/${exp.photos[0]}`}
                   alt={exp.title}
                   className="w-full aspect-square object-cover rounded-xl"
                 />

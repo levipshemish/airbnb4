@@ -9,7 +9,7 @@ export default function HomePage() {
   useEffect(() => {
     const fetchHomes = async () => {
       try {
-        const res = await fetch("http://localhost:5869/api/homes/get");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/homes/get`);
         const data = await res.json();
         console.log("📦 homes response:", data);
         setHomes(data);
@@ -50,7 +50,7 @@ export default function HomePage() {
               <div className="hover:shadow-lg transition">
                 {home.photos?.length > 0 && (
                   <img
-                    src={`http://localhost:5869/${home.photos[0]}`}
+                    src={`${import.meta.env.VITE_API_URL}/${home.photos[0]}`}
                     alt="Home"
                     className="w-full h-48 object-cover rounded-xl"
                   />

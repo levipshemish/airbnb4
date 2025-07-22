@@ -62,7 +62,7 @@ export default function AddService() {
         formData.append("photos", photos[i]);
       }
 
-      const res = await fetch("http://localhost:5869/api/services", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/services`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`

@@ -10,7 +10,7 @@ const SuccessExperience = () => {
   useEffect(() => {
     const fetchBooking = async () => {
       try {
-        const res = await fetch(`http://localhost:5869/api/experiencebookings/${bookingId}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/experiencebookings/${bookingId}`);
         const data = await res.json();
         setBooking(data);
       } catch (err) {
@@ -33,8 +33,8 @@ const SuccessExperience = () => {
       <h1 className="text-2xl font-bold mb-4">🎉 Booking Confirmed!</h1>
       {booking.photo && (
         <img
-          src={`http://localhost:5869/${booking.experiencePhoto}`}
-          alt="Booked Home"
+        src={`${import.meta.env.VITE_API_URL}/${booking.experiencePhoto}`}
+        alt="Booked Home"
           className="mt-4 w-full h-64 object-cover rounded"
         />
       )}

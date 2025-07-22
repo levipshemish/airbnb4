@@ -9,7 +9,7 @@ const Services = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await fetch('http://localhost:5869/api/services');
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/services`);
         const data = await res.json();
         setServices(data);
       } catch (err) {
@@ -42,7 +42,7 @@ const Services = () => {
             <div className="hover:shadow-lg transition">
               {serv.photos?.length > 0 && (
                 <img
-                  src={`http://localhost:5869/${serv.photos[0]}`}
+                  src={`${import.meta.env.VITE_API_URL}/${serv.photos[0]}`}
                   alt={serv.title}
                   className="w-full aspect-square object-cover rounded-xl"
                 />

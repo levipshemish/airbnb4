@@ -14,7 +14,7 @@ export default function Profile() {
       if (!token) return;
 
       try {
-        const res = await fetch('http://localhost:5869/api/auth/profile', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -38,7 +38,7 @@ export default function Profile() {
     const token = localStorage.getItem('token');
 
     try {
-      await fetch('http://localhost:5869/api/logout', {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/logout`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
