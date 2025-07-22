@@ -9,7 +9,11 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true
+}));
+
 app.use(express.json());
 // const upload = multer({ dest: 'uploads/' });
 app.use('/uploads', express.static('uploads'));
